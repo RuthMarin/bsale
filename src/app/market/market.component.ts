@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit, AfterContentInit, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import {ProductService} from '../services/product.service';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-market',
@@ -13,27 +14,37 @@ export class MarketComponent implements OnInit {
 
   @Output() homeRendered: EventEmitter<any> = new EventEmitter();
 
-  constructor(private router: Router,
-  			  public productService: ProductService) { }
+  datosForm: FormGroup;
+  selectedValue;
 
-    getProduct(){
-    this.productService.getProduct().then(data=> {
-    	for (let i = 0; i < data.data.length; ++i) {
-        this.productos.push({'name': data.data[i].name, 'imagen': data.data[i].urlImg, 'price': Math.round(data.data[i].variant.finalPrice),'id': data.data[i].variant.id});
-      }
-      console.log(data.data[1]);
-      console.log(data.data[2]);
+  constructor(private router: Router,
+  			  public productService: ProductService,
+          private formBuilder: FormBuilder) {
+
+      this.datosForm = this.formBuilder.group({
+      cantidad: [''],
+      id: [''],
+      precio: [''],
+    }); 
+
+    console.log(this.datosForm.get("cantidad").value);}
+
+  getProduct(){
+      this.productos = JSON.parse(localStorage.getItem("carro"));
       this.loading = false; 
-    }, (err) => {
-      console.error(err)
-      //this.router.navigate(['/firma-web/errores']);
-      console.log('Ocurrió un error');
-    });
-    
+
+  }
+  get form() { return this.datosForm.controls; }
+
+
+  atras(){
+    this.router.navigate(['/']);
   }
 
   ngOnInit() {
-  this.getProduct(); }
+  this.getProduct(); 
+  
+}
 
   test() {
     console.log('tested');

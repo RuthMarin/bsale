@@ -24,6 +24,24 @@ export class RequestService {
 	return doRequest();
 }
 
+ public post(resource: string, params: any,token:any): Promise<any>{
+		const url = 'http://ec2-54-183-147-121.us-west-1.compute.amazonaws.com:8383/v2/markets' + resource;
+		let customHeader = new HttpHeaders({
+				'access_token': token
+		});
+
+			const doRequest = () =>
+				this.http.post(url, params,{ 'headers': customHeader})
+					.toPromise()
+					.then((res: any) => {
+						return Promise.resolve(res);
+					})
+					.catch((ex) => {
+						return Promise.reject(ex);
+					});
+	return doRequest();
+}
+
 	constructor(
 		private http: HttpClient) { }
 

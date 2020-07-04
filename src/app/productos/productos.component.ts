@@ -26,10 +26,29 @@ export class ProductosComponent implements OnInit {
       this.loading = false; 
     }, (err) => {
       console.error(err)
-      //this.router.navigate(['/firma-web/errores']);
       console.log('Ocurrió un error');
     });
     
+  }
+
+  comprar(name:any,price:any, imagen:any, id:any){
+  	var jsons = new Array();
+  	if(localStorage.getItem('carro') == null){
+		jsons.push({"name": name, "price": price, "imagen": imagen, "id": id});
+  		localStorage.setItem('carro', JSON.stringify(jsons));
+  		this.router.navigate(['/carro']);
+  	}else{
+		var lista = JSON.parse(localStorage.getItem("carro"));
+	  	lista.push({"name": name, "price": price, "imagen": imagen, "id": id});
+  		localStorage.setItem('carro', JSON.stringify(lista));
+  		console.log("pase");
+  		this.router.navigate(['/carro']);
+
+  	}
+
+  	
+  	
+
   }
 
   ngOnInit() {

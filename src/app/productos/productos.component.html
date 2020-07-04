@@ -1,6 +1,6 @@
-<div class="content" role="main" style="background: #F6F6F6">
+<div class="content" role="main" style="background: #F6F6F6; ">
   <!-- Resources -->
-  <h1 style="font-weight: lighter;">Market bsale</h1>
+  <h1 style="font-weight: lighter; ">Market bsale</h1>
   <p>Compra lo que quieras!</p>
   <mat-progress-spinner mode="indeterminate" *ngIf="loading" style= "margin-top: 20px;"></mat-progress-spinner >
 
@@ -12,7 +12,7 @@
         <div class="col">
         <div style="color:red;font-weight: bold;"> VALOR: $ {{objeto.price}}</div>
       </div>
-      <img [src]="objeto.imagen" class="qr col-xs-12 col-sm-12 col-md-6 col-lg-6" class="responsive"  ><button style='font-size:14px' class="btn btn-success"><i class='fas fa-cart-arrow-down'></i></button>
+      <img [src]="objeto.imagen" class="qr col-xs-12 col-sm-12 col-md-6 col-lg-6" class="responsive"  ><button style='font-size:14px' class="btn btn-success" (click) = "comprar(objeto.name,objeto.price,objeto.imagen, objeto.id)">Comprar <i class='fas fa-cart-arrow-down'></i></button>
     </div>
 </div>
   </div>

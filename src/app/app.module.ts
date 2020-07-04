@@ -12,6 +12,7 @@ import { RequestService } from './services/request.service';
 import { APIInterceptor } from './services/apiinterceptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MarketComponent } from './market/market.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -26,7 +27,9 @@ import { MarketComponent } from './market/market.component';
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
     MatProgressBarModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [{
       provide: HTTP_INTERCEPTORS,

@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
 	imports: [
@@ -19,6 +20,8 @@ import { BrowserModule } from '@angular/platform-browser';
 		MatProgressBarModule,
 		MatProgressSpinnerModule,
 		BrowserModule,
+		FormsModule,
+		ReactiveFormsModule,
 	],
 	declarations: [
 		MarketComponent

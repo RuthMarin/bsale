@@ -1,19 +1,26 @@
-<div class="content" role="main" style="background: #F6F6F6">
-  <!-- Resources -->
-  <h1 style="font-weight: lighter;">Market bsale</h1>
-  <p>Compra lo que quieras!</p>
+<div class="content" role="main" style="background: #F6F6F6; ">
+
+  <h1 style="font-weight: lighter; ">Carro de compras</h1>
+  <a href="#" class="btn btn-primary" style="margin-bottom: 10px "(click) = "atras()" >Volver</a>
   <mat-progress-spinner mode="indeterminate" *ngIf="loading" style= "margin-top: 20px;"></mat-progress-spinner >
 
-  <div class="card-container text-center" *ngIf="!loading">
-    <div class="card text-center" target="_blank" rel="noopener" *ngFor="let objeto of productos">
-      <div class="col">
-        <div class="col">
-          {{objeto.name}}
-        <div class="col">
-        <div style="color:red;font-weight: bold;"> VALOR: $ {{objeto.price}}</div>
-      </div>
-      <img [src]="objeto.imagen" class="qr col-xs-12 col-sm-12 col-md-6 col-lg-6" class="responsive"  ><button style='font-size:14px' class="btn btn-success"><i class='fas fa-cart-arrow-down'></i></button>
-    </div>
+
+<div class="card w-75" *ngFor="let objeto of productos" [formGroup]="datosForm" >
+  <div class=" row card-body" *ngIf="!loading"  >
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"><img [src]="objeto.imagen" class="col-xs-12 col-sm-12 col-md-4 col-lg-4" class="responsive"></div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" >{{objeto.name}}   <select class="form-control" [value]="1"  formControlName="cantidad" [(ngModel)]="selectedValue" >
+    <option value="1" >1</option>
+    <option value="2" >2</option>
+    <option value="3" >3</option>
+    <option value="4" >4</option>
+    <option value="5" >5</option>
+</select></div>
+    <div >
+
 </div>
-  </div>
+</div>
+
+</div>
+<p>Selected option: {{ selectedValue }}</p>
+<h2 style="font-weight: lighter; ">Total:</h2>
 
