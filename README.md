@@ -1,4 +1,4 @@
-<img src="https://i.ibb.co/LRY2JfV/Captura-de-pantalla-de-2020-07-04-15-32-48.png" alt="Captura-de-pantalla-de-2020-07-04-15-32-48" border="0">
+<img src="https://i.ibb.co/NCg035M/Captura-de-pantalla-de-2020-07-04-16-26-50.png" alt="Captura-de-pantalla-de-2020-07-04-16-26-50" border="0">
 
 
 # BsalePostulacion
