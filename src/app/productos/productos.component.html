@@ -1,12 +1,10 @@
 <div class="content" role="main" style="background: #F6F6F6; ">
-  <!-- Resources -->
+  <!-- Productos -->
   <h1 style="font-weight: lighter; ">Market bsale</h1>
   <p>Compra lo que quieras!</p>
   <mat-progress-spinner mode="indeterminate" *ngIf="loading" style= "margin-top: 20px;"></mat-progress-spinner >
-
   <div class="card-container text-center" *ngIf="!loading" >
     <div class="card text-center" target="_blank" rel="noopener" *ngFor="let objeto of productos">
-
       <div class="col">
         <div class="col">
           {{objeto.name}}
@@ -14,9 +12,10 @@
         <div style="color:red;font-weight: bold;"> VALOR: $ {{objeto.price}}</div>
       </div>
       <img [src]="objeto.imagen" class="qr col-xs-12 col-sm-12 col-md-6 col-lg-6" class="responsive"  >
-        <select class="input-lg" [ngModel]="objeto.id" (change)="selectChangeHandler($event)" style="margin-right: 5px">
-      <option [value]="item.value" *ngFor="let item of lista">{{item.id}}</option>
-      </select><button style='font-size:14px' class="btn btn-success" (click) = "comprar(objeto.name,objeto.price,objeto.imagen, objeto.id)">Comprar <i class='fas fa-cart-arrow-down'></i></button>
+        <select class="input-lg" [ngModel]="1" (change)="selectChangeHandler($event)" style="margin-right: 5px" [value]="1" >
+          <option [value]="item.value" *ngFor="let item of lista">{{item.id}}</option>
+        </select>
+      <button style='font-size:14px' class="btn btn-success" (click) = "comprar(objeto.name,objeto.price,objeto.imagen, objeto.id)">Comprar <i class='fas fa-cart-arrow-down'></i></button>
     </div>
 </div>
   </div>

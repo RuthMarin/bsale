@@ -22,14 +22,12 @@ export class ProductosComponent implements OnInit {
 
   constructor(private router: Router,
   			  public productService: ProductService) { }
-
+ //Función que obtiene el nombre, la imagen y el precio del producto
     getProduct(){
     this.productService.getProduct().then(data=> {
     	for (let i = 0; i < data.data.length; ++i) {
         this.productos.push({'name': data.data[i].name, 'imagen': data.data[i].urlImg, 'price': Math.round(data.data[i].variant.finalPrice),'id': data.data[i].variant.id});
       }
-      console.log(data.data[1]);
-      console.log(data.data[2]);
       this.loading = false; 
     }, (err) => {
       console.error(err)
@@ -37,29 +35,34 @@ export class ProductosComponent implements OnInit {
     });
     
   }
-
+//Funcion que guarda los productos en el carro como variable de sesión
   comprar(name:any,price:any, imagen:any, id:any){
   	this.loading = true; 
   	var jsons = new Array();
   	var body ={ "cartDetails": [
 		{"quantity": Number(this.select),"unitValue":price,"idVarianteProducto": id}]};
   	if(localStorage.getItem('carro') == null){
+  //Función que agrega un producto al carro
   		this.productService.postProduct(body).then(data=> {
 	      jsons.push({"name": name, "price": price, "imagen": imagen, "id": id, "total":data.data.cartDetails[0].total, "cantidad": Number(this.select)});
   		  localStorage.setItem('carro', JSON.stringify(jsons));
-	      this.router.navigate(['/carro']);
-	      this.loading = false; 
+	      //this.router.navigate(['/carro']);
+	      this.loading = false;
+	      alert("Se agregado el producto " + name); 
 	    }, (err) => {
 	      console.error(err)
 	      console.log('Ocurrió un error');
 	    });
   	}else{
 		var lista = JSON.parse(localStorage.getItem("carro"));
+	//Función que agrega un producto al carro
 		this.productService.postProduct(body).then(data=> {
 	      lista.push({"name": name, "price": price, "imagen": imagen, "id": id, "total":data.data.cartDetails[0].total, "cantidad": Number(this.select)});
   		  localStorage.setItem('carro', JSON.stringify(lista));
-	      this.router.navigate(['/carro']);
-	      this.loading = false; 
+	      //this.router.navigate(['/carro']);
+	      this.loading = false;
+	      alert("Se agregado el producto " + name);
+	       
 	    }, (err) => {
 	      console.error(err)
 	      console.log('Ocurrió un error');
@@ -67,12 +70,14 @@ export class ProductosComponent implements OnInit {
 
   	}
   }
+
+  //Función que toma el evento de la cantidad de productos
     selectChangeHandler (event: any) {
     this.select = event.target.value;
     console.log(this.select)
   }
 
-
+ //Inicio de la carga de los datos
   ngOnInit() {
   this.getProduct(); }
 

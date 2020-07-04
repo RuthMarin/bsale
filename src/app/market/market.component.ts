@@ -30,6 +30,7 @@ export class MarketComponent implements OnInit {
 
     console.log(this.datosForm.get("cantidad").value);}
 
+  //Muestra los productos seleccionados
   getProduct(){
       this.productos = JSON.parse(localStorage.getItem("carro"));
       this.loading = false;
@@ -38,6 +39,7 @@ export class MarketComponent implements OnInit {
       } 
 
   }
+  //Toma los datos del form
   get form() { return this.datosForm.controls; }
 
 

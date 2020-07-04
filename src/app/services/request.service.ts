@@ -5,7 +5,7 @@ import { map, catchError } from 'rxjs/operators';
 
 @Injectable()
 export class RequestService {
-
+//servicio http get
 	public get(resource: string, token:any): Promise<any>{
 		const url = 'http://ec2-54-183-147-121.us-west-1.compute.amazonaws.com:8383/v2/markets' + resource;
 		let customHeader = new HttpHeaders({
@@ -23,6 +23,7 @@ export class RequestService {
 					});
 	return doRequest();
 }
+//servicio http post
 
  public post(resource: string, params: any, token:any): Promise<any>{
 		const url = 'http://ec2-54-183-147-121.us-west-1.compute.amazonaws.com:8585/v1' + resource;
