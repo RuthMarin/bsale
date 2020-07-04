@@ -11,6 +11,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 export class MarketComponent implements OnInit {
 	productos=[];
 	loading = true;
+  total = 0;
 
   @Output() homeRendered: EventEmitter<any> = new EventEmitter();
 
@@ -31,7 +32,10 @@ export class MarketComponent implements OnInit {
 
   getProduct(){
       this.productos = JSON.parse(localStorage.getItem("carro"));
-      this.loading = false; 
+      this.loading = false;
+      for (let i = 0; i < this.productos.length; ++i) {
+        this.total =this.total + Number(this.productos[i].total);
+      } 
 
   }
   get form() { return this.datosForm.controls; }

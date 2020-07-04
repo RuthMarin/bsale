@@ -8,19 +8,12 @@
 <div class="card w-75" *ngFor="let objeto of productos" [formGroup]="datosForm" >
   <div class=" row card-body" *ngIf="!loading"  >
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"><img [src]="objeto.imagen" class="col-xs-12 col-sm-12 col-md-4 col-lg-4" class="responsive"></div>
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" >{{objeto.name}}   <select class="form-control" [value]="1"  formControlName="cantidad" [(ngModel)]="selectedValue" >
-    <option value="1" >1</option>
-    <option value="2" >2</option>
-    <option value="3" >3</option>
-    <option value="4" >4</option>
-    <option value="5" >5</option>
-</select></div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="font-weight: bold; font-size: 18px" >{{objeto.name}} - <span style="color: green"> {{objeto.cantidad}}x${{objeto.price}}</span></div>
     <div >
-
 </div>
 </div>
 
 </div>
-<p>Selected option: {{ selectedValue }}</p>
-<h2 style="font-weight: lighter; ">Total:</h2>
+<p>Total a pagar</p>
+<h2 style="font-weight: bolder; color: red ">${{total}}</h2>
 

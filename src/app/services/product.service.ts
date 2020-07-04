@@ -16,6 +16,16 @@ export class ProductService {
 			console.log(err);
 		});
     }
+
+    postProduct (body:any): Promise<any> {
+		var collection_id =2;
+		var market_id =1;
+    	return this.request.post('/cart.json', body, this.token).then((res) => {
+			return res;
+		}, (err) => {
+			console.log(err);
+		});
+    }
 	constructor(
 		private request: RequestService ) { }
 }
