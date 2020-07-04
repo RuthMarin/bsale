@@ -1,3 +1,6 @@
+<img src="https://i.ibb.co/LRY2JfV/Captura-de-pantalla-de-2020-07-04-15-32-48.png" alt="Captura-de-pantalla-de-2020-07-04-15-32-48" border="0">
+
+
 # BsalePostulacion
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.2.
