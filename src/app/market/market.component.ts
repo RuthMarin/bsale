@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import {ProductService} from '../services/product.service';
 
 @Component({
-  selector: 'app-productos',
-  templateUrl: './productos.component.html',
-  styleUrls: ['./productos.component.scss']
+  selector: 'app-market',
+  templateUrl: './market.component.html',
+  styleUrls: ['./market.component.scss']
 })
-export class ProductosComponent implements OnInit {
+export class MarketComponent implements OnInit {
 	productos=[];
 	loading = true;
 

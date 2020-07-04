@@ -11,12 +11,14 @@ import { ProductosComponent } from './productos/productos.component';
 import { RequestService } from './services/request.service';
 import { APIInterceptor } from './services/apiinterceptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MarketComponent } from './market/market.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductosComponent
+    ProductosComponent,
+    MarketComponent
   ],
   imports: [
     BrowserModule,
